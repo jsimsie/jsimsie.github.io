@@ -8,30 +8,44 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 
 // Navigation menu toggle
 $('.menu-toggle').click(function() {
-$('.nav-links').toggleClass('active');
+  $('.nav-links').toggleClass('active');
 });
 
 // Sticky navigation bar
-window.onscroll = function() {stickyNav()};
+window.onscroll = function() {
+  stickyNav();
+  animateImages();
+};
+
 var navbar = document.getElementById("navbar");
 var sticky = navbar.offsetTop;
 
 function stickyNav() {
-if (window.pageYOffset >= sticky) {
-  navbar.classList.add("sticky");
-} else {
-  navbar.classList.remove("sticky");
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
 }
+
+// Image animation on scroll
+function animateImages() {
+  $('.img-container').each(function() {
+    var imgPos = $(this).offset().top;
+    var scrollPos = $(window).scrollTop() + $(window).height();
+    if (scrollPos > imgPos + 200) {
+      $(this).addClass('animate');
+    }
+  });
 }
-// Sexy LEL
+
+// Show/hide header on scroll
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
-    // User is scrolling up, show the header
     document.getElementById("header").classList.remove("hidden");
   } else {
-    // User is scrolling down, hide the header
     document.getElementById("header").classList.add("hidden");
   }
   prevScrollpos = currentScrollPos;
@@ -57,4 +71,3 @@ $('#contact-form').submit(function(e) {
     }
   });
 });
-
