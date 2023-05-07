@@ -23,6 +23,19 @@ if (window.pageYOffset >= sticky) {
   navbar.classList.remove("sticky");
 }
 }
+// Sexy LEL
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    // User is scrolling up, show the header
+    document.getElementById("header").classList.remove("hidden");
+  } else {
+    // User is scrolling down, hide the header
+    document.getElementById("header").classList.add("hidden");
+  }
+  prevScrollpos = currentScrollPos;
+}
 
 // Contact form submission
 $('#contact-form').submit(function(e) {
