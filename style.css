@@ -135,19 +135,3 @@ nav a:hover {
   opacity: 0;
   transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-
-.hero-image.show {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.fixed-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  background-color: #111;
-  color: #fff;
-  transition: top 0.3s;
-  display: flex;
-}
