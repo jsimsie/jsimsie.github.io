@@ -23,3 +23,25 @@ if (window.pageYOffset >= sticky) {
   navbar.classList.remove("sticky");
 }
 }
+
+// Contact form submission
+$('#contact-form').submit(function(e) {
+  e.preventDefault();
+  var name = $('#name').val();
+  var email = $('#email').val();
+  var message = $('#message').val();
+  $.ajax({
+    url: 'submit-form.php',
+    type: 'POST',
+    data: {
+      name: name,
+      email: email,
+      message: message
+    },
+    success: function(response) {
+      $('#contact-form').trigger('reset');
+      alert('Form submitted successfully!');
+    }
+  });
+});
+

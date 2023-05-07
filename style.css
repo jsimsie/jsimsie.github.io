@@ -1,130 +1,53 @@
-/* Global styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #111;
-  color: #fff;
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-p {
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-/* Header styles */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-.logo {
-  font-size: 36px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-}
-
-nav li {
-  margin-right: 20px;
-}
-
-/* Hero section styles */
-.hero {
-  height: 500px;
-  background-image: url('https://source.unsplash.com/random');
-  background-size: cover;
-  background-position: center center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero h1 {
-  font-size: 60px;
-  text-align: center;
+/* Contact section styles */
+.contact-form {
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* Portfolio section styles */
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-bottom: 60px;
-}
-
-.portfolio-item {
-  overflow: hidden;
-  position: relative;
-}
-
-.portfolio-item img {
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
   width: 100%;
-  transition: all 0.3s ease;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
 }
 
-.portfolio-item:hover img {
-  transform: scale(1.1);
+.contact-form input[type="submit"] {
+  background-color: #fff;
+  color: #111;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.portfolio-item .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.contact-form input[type="submit"]:hover {
+  background-color: #111;
+  color: #fff;
 }
 
-.portfolio-item:hover .overlay {
-  opacity: 1;
-}
-
-.overlay-text {
+/* Footer styles */
+footer {
+  background-color: #111;
+  color: #fff;
+  padding: 40px;
   text-align: center;
 }
 
-.overlay-text h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.overlay-text p {
-  font-size: 16px;
-  margin-bottom: 20px;
+.footer-links a {
+  color: #fff;
+  margin-right: 20px;
+}
+
+.footer-links a:hover {
+  color: #aaa;
 }
