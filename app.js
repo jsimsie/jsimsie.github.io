@@ -71,3 +71,61 @@ $('#contact-form').submit(function(e) {
     }
   });
 });
+
+// Carousel slider
+$('.carousel').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear'
+});
+
+// Back to top button
+$(window).scroll(function() {
+  if ($(this).scrollTop() > 200) {
+    $('.back-to-top').fadeIn();
+  } else {
+    $('.back-to-top').fadeOut();
+  }
+});
+
+$('.back-to-top').click(function() {
+  $('html, body').animate({
+    scrollTop: 0
+  }, 800);
+  return false;
+});
+
+// Lazy loading of images
+$(document).ready(function() {
+  $('.lazy').Lazy({
+    effect: 'fadeIn',
+    effectTime: 1000,
+    threshold: 0
+  });
+});
+
+// Smooth scrolling on page load
+$(window).on('load', function() {
+  if (window.location.hash) {
+    $('html, body').animate({
+      scrollTop: $(window.location.hash).offset().top
+    }, 500);
+  }
+});
+
+// Mobile menu close on link click
+$('.nav-links a').click(function() {
+  $('.nav-links').removeClass('active');
+});
+
+// Image lightbox
+$('.lightbox').click(function() {
+  var image = $(this).attr('src');
+  $('body').append('<div class="lightbox-overlay"><img src="' + image + '"><span class="lightbox-close">&times;</span></div>');
+});
+
+$('body').on('click', '.lightbox-close', function() {
+  $('.lightbox-overlay').remove();
+});
