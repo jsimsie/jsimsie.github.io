@@ -1,45 +1,130 @@
-#loader-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1000;
-  background: #fff;
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.logo {
+  font-size: 36px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+/* Hero section styles */
+.hero {
+  height: 500px;
+  background-image: url('https://source.unsplash.com/random');
+  background-size: cover;
+  background-position: center center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#content {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+.hero h1 {
+  font-size: 60px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-#content.visible {
+/* Portfolio section styles */
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.portfolio-item {
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-item img {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.1);
+}
+
+.portfolio-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .overlay {
   opacity: 1;
 }
 
-#loader {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 4px solid #ccc;
-  border-top-color: #f5a623;
-  animation: loader 0.8s linear infinite;
+.overlay-text {
+  text-align: center;
 }
 
-@keyframes loader {
-  to {transform: rotate(360deg);}
+.overlay-text h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-#content {
-  opacity: 0;
-  transform: translateY(-100%);
-  transition: all 0.5s ease;
-}
-
-.loaded #content {
-  opacity: 1;
-  transform: translateY(0);
+.overlay-text p {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
