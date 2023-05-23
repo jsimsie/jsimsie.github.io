@@ -1,74 +1,79 @@
-<html>
 <head>
-  <title>My Portfolio</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>simsie - web design</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <header id="header" class="dark">
-    <div class="container">
-      <nav>
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-        <a href="#" class="logo">My Portfolio</a>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo.svg" alt="simsie logo">
+      </div>
+      <ul class="navigation">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="hamburger-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
+      </ul>
+    </nav>
   </header>
 
   <section id="hero">
-    <div class="container">
-      <div class="hero-text">
-        <h1>Welcome to My Portfolio</h1>
-        <p>I'm a web developer with a passion for creating beautiful, responsive websites.</p>
-        <a href="#about" class="btn">Learn More</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>Hi there! My name is Jaeger, and I'm a web developer based in Timaru, New Zealand. I specialize in creating beautiful, responsive websites using the latest technologies, including HTML, CSS, JavaScript, and more.</p>
-      <p>When I'm not coding, you can usually find me exploring New Zealand, Going to School or connecting with nature. Feel free to take a look at some of my work, and don't hesitate to get in touch!</p>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-      <h2>Services</h2>
-      <div class="services-grid">
-        <div class="service">
-          <i class="fas fa-code"></i>
-          <h3>Web Development</h3>
-          <p>I specialize in creating beautiful, responsive websites using the latest technologies.</p>
-        </div>
-        <div class="service">
-          <i class="fas fa-search"></i>
-          <h3>SEO Optimization</h3>
-          <p>I can help you improve your website's search engine rankings through effective optimization techniques.</p>
-        </div>
-        <div class="service">
-          <i class="fas fa-mobile-alt"></i>
-          <h3>Mobile Optimization</h3>
-          <p>I can ensure that your website is fully optimized for viewing on all types of mobile devices.</p>
-        </div>
-        <div class="service">
-          <i class="fas fa-cog"></i>
-          <h3>Custom Solutions</h3>
-          <p>I can work with you to create custom web solutions tailored to your specific needs and requirements.</p>
-        </div>
-      </div>
-    </div>
+    <h1>Welcome to simsie</h1>
+    <p>A modern web design business</p>
+    <a href="#contact" class="cta-button">Get Started</a>
   </section>
 
   <section id="portfolio">
-    <div class="container">
-      <h2>Portfolio</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio-item">
+      <img src="project1-thumbnail.svg" alt="Project 1">
+      <h3>Project 1</h3>
+      <p>Description of project 1</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="project2-thumbnail.svg" alt="Project 2">
+      <h3>Project 2</h3>
+      <p>Description of project 2</p>
+    </div>
+    <!-- Add more portfolio items as needed -->
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="service">
+      <i class="fa fa-laptop"></i>
+      <h3>Web Design</h3>
+      <p>We create stunning and responsive websites tailored to your needs.</p>
+    </div>
+    <div class="service">
+      <i class="fa fa-mobile"></i>
+      <h3>Mobile Development</h3>
+      <p>We develop mobile applications for iOS and Android platforms.</p>
+    </div>
+    <!-- Add more service items as needed -->
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contact-form" action="submit-form.php" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+      
+      <input type="submit" value="Send Message">
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,131 +1,110 @@
-// Smooth scrolling for anchor links
-$(document).on('click', 'a[href^="#"]', function (event) {
-  event.preventDefault();
-  $('html, body').animate({
-      scrollTop: $($.attr(this, 'href')).offset().top
-  }, 500);
-});
-
-// Navigation menu toggle
-$('.menu-toggle').click(function() {
-  $('.nav-links').toggleClass('active');
-});
-
-// Sticky navigation bar
-window.onscroll = function() {
-  stickyNav();
-  animateImages();
-};
-
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function stickyNav() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
-  }
+// This function implements smooth scrolling functionality when navigating through different sections of the website
+function smoothScroll() {
+  // Select all links with hashes
+  $('a[href*="#"]')
+    // Remove links that don't actually link to anything
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function(event) {
+      // On-page links
+      if (
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+        && 
+        location.hostname == this.hostname
+      ) {
+        // Figure out element to scroll to
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        // Does a scroll target exist?
+        if (target.length) {
+          // Only prevent default if animation is actually gonna happen
+          event.preventDefault();
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000, function() {
+            // Callback after animation
+            // Must change focus!
+            var $target = $(target);
+            $target.focus();
+            if ($target.is(":focus")) { // Checking if the target was focused
+              return false;
+            } else {
+              $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+              $target.focus(); // Set focus again
+            };
+          });
+        }
+      }
+    });
 }
 
-// Image animation on scroll
-function animateImages() {
-  $('.img-container').each(function() {
-    var imgPos = $(this).offset().top;
-    var scrollPos = $(window).scrollTop() + $(window).height();
-    if (scrollPos > imgPos + 200) {
-      $(this).addClass('animate');
+// This function validates the contact form to ensure all required fields are filled out correctly before submission
+function validateForm() {
+  // Get the form element
+  var form = document.getElementById("contact-form");
+  
+  // Add event listener to the form submit button
+  form.addEventListener("submit", function(event) {
+    // Get the form fields
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+    
+    // Check if all fields are filled out
+    if (name === "" || email === "" || message === "") {
+      alert("Please fill out all required fields.");
+      event.preventDefault();
+    }
+    
+    // Check if email is valid
+    if (!isValidEmail(email)) {
+      alert("Please enter a valid email address.");
+      event.preventDefault();
     }
   });
 }
 
-// Show/hide header on scroll
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("header").classList.remove("hidden");
-  } else {
-    document.getElementById("header").classList.add("hidden");
-  }
-  prevScrollpos = currentScrollPos;
+// This function checks if an email address is valid
+function isValidEmail(email) {
+  // Regular expression for email validation
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  // Test the email against the regex
+  return emailRegex.test(email);
 }
 
-// Contact form submission
-$('#contact-form').submit(function(e) {
-  e.preventDefault();
-  var name = $('#name').val();
-  var email = $('#email').val();
-  var message = $('#message').val();
-  $.ajax({
-    url: 'submit-form.php',
-    type: 'POST',
-    data: {
-      name: name,
-      email: email,
-      message: message
-    },
-    success: function(response) {
-      $('#contact-form').trigger('reset');
-      alert('Form submitted successfully!');
-    }
+// This function adds interactivity to elements like buttons, menu items, or portfolio items with appropriate event listeners and actions
+function addInteractivity() {
+  // Add event listener to the menu button
+  var menuButton = document.getElementById("menu-button");
+  menuButton.addEventListener("click", function() {
+    // Toggle the menu visibility
+    var menu = document.getElementById("menu");
+    menu.classList.toggle("visible");
   });
-});
-
-// Carousel slider
-$('.carousel').slick({
-  dots: true,
-  infinite: true,
-  speed: 500,
-  fade: true,
-  cssEase: 'linear'
-});
-
-// Back to top button
-$(window).scroll(function() {
-  if ($(this).scrollTop() > 200) {
-    $('.back-to-top').fadeIn();
-  } else {
-    $('.back-to-top').fadeOut();
+  
+  // Add event listener to the portfolio items
+  var portfolioItems = document.getElementsByClassName("portfolio-item");
+  for (var i = 0; i < portfolioItems.length; i++) {
+    portfolioItems[i].addEventListener("click", function() {
+      // Open the portfolio item in a new tab
+      var link = this.getAttribute("data-link");
+      window.open(link, "_blank");
+    });
   }
-});
+}
 
-$('.back-to-top').click(function() {
-  $('html, body').animate({
-    scrollTop: 0
-  }, 800);
-  return false;
-});
+// This function creates any additional JavaScript functionality that enhances the user experience or supports the desired behavior of the website
+function additionalFunctionality() {
+  // Add smooth scrolling functionality
+  smoothScroll();
+  
+  // Validate the contact form
+  validateForm();
+  
+  // Add interactivity to elements
+  addInteractivity();
+}
 
-// Lazy loading of images
-$(document).ready(function() {
-  $('.lazy').Lazy({
-    effect: 'fadeIn',
-    effectTime: 1000,
-    threshold: 0
-  });
-});
-
-// Smooth scrolling on page load
-$(window).on('load', function() {
-  if (window.location.hash) {
-    $('html, body').animate({
-      scrollTop: $(window.location.hash).offset().top
-    }, 500);
-  }
-});
-
-// Mobile menu close on link click
-$('.nav-links a').click(function() {
-  $('.nav-links').removeClass('active');
-});
-
-// Image lightbox
-$('.lightbox').click(function() {
-  var image = $(this).attr('src');
-  $('body').append('<div class="lightbox-overlay"><img src="' + image + '"><span class="lightbox-close">&times;</span></div>');
-});
-
-$('body').on('click', '.lightbox-close', function() {
-  $('.lightbox-overlay').remove();
-});
+// Call the additionalFunctionality function when the page is loaded
+window.onload = additionalFunctionality;
