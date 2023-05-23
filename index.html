@@ -7,27 +7,24 @@
 </head>
 
 <body>
-  <div class="loading-screen">
-    <h2 class="loading-text">Loading...</h2>
-  </div>
   <header>
     <nav>
       <div class="logo">
         <img src="logo.svg" alt="simsie logo">
       </div>
       <ul class="navigation">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="hero">Home</a></li>
+        <li><a href="portfolio">Portfolio</a></li>
+        <li><a href="services">Services</a></li>
+        <li><a href="contact">Contact</a></li>
         <li class="hamburger-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
       </ul>
     </nav>
   </header>
 
   <section id="hero">
-    <h1>Welcome to simsie</h1>
-    <p>A modern web design business</p>
+    <h1>Welcome to my world, simsie's world.</h1>
+    <p>A modern web design 1:1</p>
     <a href="#contact" class="cta-button">Get Started</a>
   </section>
 
@@ -77,6 +74,13 @@
     </form>
   </section>
 
-  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(function() {
+        var loadingScreen = document.querySelector(".loading-screen");
+        loadingScreen.parentNode.removeChild(loadingScreen);
+      }, 5000); // 5000 milliseconds = 5 seconds
+    });
+  </script>
 </body>
 </html>
