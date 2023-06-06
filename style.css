@@ -18,7 +18,7 @@ body {
 
 .navbar {
   width: 100%;
-  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.15);
 }
 
 .nav-container {
@@ -38,7 +38,7 @@ body {
 
 .navbar .nav-container a {
   text-decoration: none;
-  color: #0e2431;
+  color: #ffffff;
   font-weight: 500;
   font-size: 1.2rem;
   padding: 0.7rem;
@@ -84,7 +84,7 @@ body {
   height: 4px;
   width: 100%;
   border-radius: 10px;
-  background: #0e2431;
+  background: #ffffff;
 }
 
 .nav-container .hamburger-lines .line1 {
