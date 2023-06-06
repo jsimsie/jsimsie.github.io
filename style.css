@@ -18,7 +18,7 @@ body {
 
 .navbar {
   width: 100%;
-  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1px 4px rgb(255, 255, 255);
 }
 
 .nav-container {
