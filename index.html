@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -61,19 +62,24 @@
       margin-top: 100px;
     }
 
-    .scrolling-text {
-      position: absolute;
-      right: 0;
-      animation: marquee 10s linear infinite;
+    .contact-info {
+      text-align: center;
+      margin-top: 30px;
     }
 
-    @keyframes marquee {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+    .contact-info p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+
+    .contact-info i {
+      margin-right: 5px;
     }
 
     #typing-text {
@@ -94,26 +100,6 @@
       from, to { border-color: transparent; }
       50% { border-color: orange; }
     }
-
-    .contact-info {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .contact-info p {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .contact-info a {
-      color: #fff;
-      text-decoration: none;
-      margin-right: 15px;
-    }
-
-    .contact-info i {
-      margin-right: 5px;
-    }
   </style>
 </head>
 <body>
@@ -124,7 +110,7 @@
     </div>
     <div class="contact-info">
       <p>Hi, welcome to my website</p>
-      <p>You're welcome to contact me:</p>
+      <p>Your welcome to contact me:</p>
       <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i>Email</a>
       <a href="tel:+1234567890"><i class="fas fa-phone"></i>Phone</a>
     </div>
