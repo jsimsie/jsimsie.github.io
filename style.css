@@ -10,7 +10,7 @@ body {
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* Updated alignment to center */
   min-height: 100vh;
 }
 
@@ -36,6 +36,12 @@ body {
 #typing-text::after {
   content: "|";
   animation: blink 1s infinite;
+}
+
+#contact-text {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 18px;
 }
 
 @keyframes blink {
