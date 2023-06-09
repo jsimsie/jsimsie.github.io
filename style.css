@@ -8,6 +8,10 @@
 body {
   background: #080808;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 ::selection {
@@ -20,17 +24,22 @@ body {
   height: 100vh;
 }
 
-.typing-text {
+#typing-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 24px;
-  margin-top: 20px;
-  animation: typing 3s infinite;
+  line-height: 1.5;
 }
 
-@keyframes typing {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
+#typing-text::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }
