@@ -26,6 +26,10 @@ h1 {
   margin-bottom: 1rem;
 }
 
+.contact-icons {
+  margin-top: 1rem;
+}
+
 .contact-icons a {
   color: #fff;
   font-size: 1.5rem;
@@ -33,15 +37,16 @@ h1 {
   margin: 0.5rem;
 }
 
-.contact-icons a i {
-  margin-right: 0.5rem;
+.contact-icons a:first-child {
+  margin-top: 1rem;
 }
+
 
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #fff;
-  color: #383838;
+  background-color: #383838;
+  color: #fff;
   font-size: 1rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -50,19 +55,20 @@ h1 {
 }
 
 .btn:hover {
-  background-color: #f1f1f1;
+  background-color: #fff;
+  color: #383838;
 }
 
-.dark-mode {
-  background-color: #212121;
-  color: #fff;
+.light-mode {
+  background-color: #fff;
+  color: #383838;
 }
 
-.dark-mode #header {
-  background: linear-gradient(to bottom, #383838, #212121);
+.light-mode #header {
+  background: linear-gradient(to bottom, #383838, #fff);
 }
 
-.dark-mode .btn {
-  background-color: #383838;
-  color: #fff;
+.light-mode .btn {
+  background-color: #fff;
+  color: #383838;
 }

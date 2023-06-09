@@ -1,4 +1,4 @@
-// This function implements smooth scrolling functionality when navigating through different sections of the website
+// Function to handle smooth scrolling when navigating through different sections of the website
 function smoothScroll() {
   // Select all links with hashes
   $('a[href*="#"]')
@@ -42,7 +42,7 @@ function smoothScroll() {
     });
 }
 
-// This function validates the contact form to ensure all required fields are filled out correctly before submission
+// Function to validate the contact form to ensure all required fields are filled out correctly before submission
 function validateForm() {
   // Get the form element
   var form = document.getElementById('contact-form');
@@ -68,7 +68,7 @@ function validateForm() {
   });
 }
 
-// This function checks if an email address is valid
+// Function to check if an email address is valid
 function isValidEmail(email) {
   // Regular expression for email validation
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -77,7 +77,7 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
-// This function adds interactivity to elements like buttons, menu items, or portfolio items with appropriate event listeners and actions
+// Function to add interactivity to elements like buttons, menu items, or portfolio items with appropriate event listeners and actions
 function addInteractivity() {
   // Add event listener to the menu button
   var menuButton = document.getElementById('menu-button');
@@ -115,7 +115,7 @@ function addInteractivity() {
   });
 }
 
-// This function creates any additional JavaScript functionality that enhances the user experience or supports the desired behavior of the website
+// Function to create any additional JavaScript functionality that enhances the user experience or supports the desired behavior of the website
 function additionalFunctionality() {
   // Add smooth scrolling functionality
   smoothScroll();
