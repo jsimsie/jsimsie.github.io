@@ -92,6 +92,14 @@ function addInteractivity() {
       window.open(link, "_blank");
     });
   }
+  
+  // Add event listener to the mode switch button
+  var modeSwitchButton = document.getElementById("mode-switch");
+  modeSwitchButton.addEventListener("click", function() {
+    // Toggle the dark mode
+    var body = document.body;
+    body.classList.toggle("dark-mode");
+  });
 }
 
 // This function creates any additional JavaScript functionality that enhances the user experience or supports the desired behavior of the website

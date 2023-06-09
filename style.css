@@ -6,7 +6,6 @@
 }
 
 body {
-  background: #383838;
   color: #fff;
 }
 
@@ -20,8 +19,6 @@ body {
   align-items: center;
   text-align: center;
 }
-
-
 
 h1 {
   font-size: 2rem;
@@ -37,4 +34,19 @@ h1 {
 
 .contact-icons a i {
   margin-right: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #000;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #000;
+  color: #fff;
 }
