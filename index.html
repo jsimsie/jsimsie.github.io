@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -58,22 +57,19 @@
 
     .typewriter {
       position: relative;
-      overflow: hidden;
-      white-space: nowrap;
-      width: 100%;
+      text-align: center;
       margin-top: 100px;
     }
 
-    .typewriter:before {
-      content: "hi, welcome to my site";
+    .scrolling-text {
       position: absolute;
-      left: 100%;
+      right: 0;
       animation: marquee 10s linear infinite;
     }
 
     @keyframes marquee {
       0% {
-        transform: translateX(0%);
+        transform: translateX(100%);
       }
       100% {
         transform: translateX(-100%);
@@ -98,6 +94,26 @@
       from, to { border-color: transparent; }
       50% { border-color: orange; }
     }
+
+    .contact-info {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .contact-info p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .contact-info a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+
+    .contact-info i {
+      margin-right: 5px;
+    }
   </style>
 </head>
 <body>
@@ -105,6 +121,12 @@
   <div class="container">
     <div class="typewriter">
       <h1 id="typing-text"></h1>
+    </div>
+    <div class="contact-info">
+      <p>Hi, welcome to my website</p>
+      <p>You're welcome to contact me:</p>
+      <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i>Email</a>
+      <a href="tel:+1234567890"><i class="fas fa-phone"></i>Phone</a>
     </div>
 
     <script>
