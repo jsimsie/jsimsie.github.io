@@ -28,12 +28,78 @@
     gtag('config', 'G-9Z81DYPYFV');
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/styled-components/5.3.0/styled-components.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #080808;
+      color: #fff;
+    }
+
+    ::selection {
+      color: rgb(245, 177, 50);
+      background-color: black;
+    }
+
+    #header {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .typewriter {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    #typing-text {
+      color: white;
+      font-size: 24px;
+      animation: typing 4s steps(22), blink-caret 0.75s step-end infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid orange;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: orange; }
+    }
+  </style>
 </head>
 <body>
-<div id="header"></div>
-<div class="container">
-  <nav>
-    <img src="images/favicon_simsie.png" class="logo">
-  </nav>
+  <div id="header"></div>
+  <div class="container">
+    <nav>
+      <img src="images/favicon_simsie.png" class="logo">
+    </nav>
+    <div class="typewriter">
+      <h1 id="typing-text"></h1>
+    </div>
+
+    <script>
+      const text = "hi, welcome to my site";
+      let index = 0;
+
+      function type() {
+        if (index < text.length) {
+          document.getElementById("typing-text").textContent += text.charAt(index);
+          index++;
+          setTimeout(type, 100);
+        }
+      }
+
+      type();
+    </script>
+  </div>
 </body>
-<html>
+</html>

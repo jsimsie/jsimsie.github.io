@@ -108,3 +108,28 @@ function additionalFunctionality() {
 
 // Call the additionalFunctionality function when the page is loaded
 window.onload = additionalFunctionality;
+
+const text = "hi, welcome to my site";
+let index = 0;
+
+function type() {
+  if (index < text.length) {
+    document.getElementById("typing-text").textContent += text.charAt(index);
+    index++;
+    setTimeout(type, 100);
+  } else {
+    setTimeout(reset, 5000);
+  }
+}
+
+function reset() {
+  document.getElementById("typing-text").textContent = "";
+  index = 0;
+  type();
+}
+
+window.onload = function() {
+  document.getElementById("typing-text").textContent = "hi, ";
+  setTimeout(type, 1000);
+  additionalFunctionality();
+};
