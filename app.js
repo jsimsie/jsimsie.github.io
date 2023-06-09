@@ -1,4 +1,4 @@
-// This function implements smooth scrolling functionality when navigating through different sections of the website
+// Function to handle smooth scrolling when navigating through different sections of the website
 function smoothScroll() {
   // Select all links with hashes
   $('a[href*="#"]')
@@ -8,8 +8,7 @@ function smoothScroll() {
     .click(function(event) {
       // On-page links
       if (
-        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-        && 
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
         location.hostname == this.hostname
       ) {
         // Figure out element to scroll to
@@ -19,89 +18,111 @@ function smoothScroll() {
         if (target.length) {
           // Only prevent default if animation is actually gonna happen
           event.preventDefault();
-          $('html, body').animate({
-            scrollTop: target.offset().top
-          }, 1000, function() {
-            // Callback after animation
-            // Must change focus!
-            var $target = $(target);
-            $target.focus();
-            if ($target.is(":focus")) { // Checking if the target was focused
-              return false;
-            } else {
-              $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-              $target.focus(); // Set focus again
-            };
-          });
+          $('html, body').animate(
+            {
+              scrollTop: target.offset().top,
+            },
+            1000,
+            function() {
+              // Callback after animation
+              // Must change focus!
+              var $target = $(target);
+              $target.focus();
+              if ($target.is(':focus')) {
+                // Checking if the target was focused
+                return false;
+              } else {
+                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                $target.focus(); // Set focus again
+              }
+            }
+          );
         }
       }
     });
 }
 
-// This function validates the contact form to ensure all required fields are filled out correctly before submission
+// Function to validate the contact form to ensure all required fields are filled out correctly before submission
 function validateForm() {
   // Get the form element
-  var form = document.getElementById("contact-form");
-  
+  var form = document.getElementById('contact-form');
+
   // Add event listener to the form submit button
-  form.addEventListener("submit", function(event) {
+  form.addEventListener('submit', function(event) {
     // Get the form fields
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var message = document.getElementById("message").value;
-    
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+
     // Check if all fields are filled out
-    if (name === "" || email === "" || message === "") {
-      alert("Please fill out all required fields.");
+    if (name === '' || email === '' || message === '') {
+      alert('Please fill out all required fields.');
       event.preventDefault();
     }
-    
+
     // Check if email is valid
     if (!isValidEmail(email)) {
-      alert("Please enter a valid email address.");
+      alert('Please enter a valid email address.');
       event.preventDefault();
     }
   });
 }
 
-// This function checks if an email address is valid
+// Function to check if an email address is valid
 function isValidEmail(email) {
   // Regular expression for email validation
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
+
   // Test the email against the regex
   return emailRegex.test(email);
 }
 
-// This function adds interactivity to elements like buttons, menu items, or portfolio items with appropriate event listeners and actions
+// Function to add interactivity to elements like buttons, menu items, or portfolio items with appropriate event listeners and actions
 function addInteractivity() {
   // Add event listener to the menu button
-  var menuButton = document.getElementById("menu-button");
-  menuButton.addEventListener("click", function() {
+  var menuButton = document.getElementById('menu-button');
+  menuButton.addEventListener('click', function() {
     // Toggle the menu visibility
-    var menu = document.getElementById("menu");
-    menu.classList.toggle("visible");
+    var menu = document.getElementById('menu');
+    menu.classList.toggle('visible');
   });
-  
+
   // Add event listener to the portfolio items
-  var portfolioItems = document.getElementsByClassName("portfolio-item");
+  var portfolioItems = document.getElementsByClassName('portfolio-item');
   for (var i = 0; i < portfolioItems.length; i++) {
-    portfolioItems[i].addEventListener("click", function() {
+    portfolioItems[i].addEventListener('click', function() {
       // Open the portfolio item in a new tab
-      var link = this.getAttribute("data-link");
-      window.open(link, "_blank");
+      var link = this.getAttribute('data-link');
+      window.open(link, '_blank');
     });
   }
+
+  // Add event listener to the mode switch button
+  var modeSwitchButton = document.getElementById('mode-switch');
+  modeSwitchButton.addEventListener('click', function() {
+    // Toggle the dark mode
+    var body = document.body;
+    body.classList.toggle('dark-mode');
+  });
+
+  // Add event listener to the switch button
+  var switchButton = document.getElementById('switch-button');
+  switchButton.addEventListener('click', function() {
+    // Toggle the switch state
+    var switchElement = document.getElementById('switch');
+    var isChecked = switchElement.checked;
+    switchElement.checked = !isChecked;
+  });
 }
 
-// This function creates any additional JavaScript functionality that enhances the user experience or supports the desired behavior of the website
+// Function to create any additional JavaScript functionality that enhances the user experience or supports the desired behavior of the website
 function additionalFunctionality() {
   // Add smooth scrolling functionality
   smoothScroll();
-  
+
   // Validate the contact form
   validateForm();
-  
+
   // Add interactivity to elements
   addInteractivity();
 }
