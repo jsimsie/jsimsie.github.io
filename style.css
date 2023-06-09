@@ -6,6 +6,7 @@
 }
 
 body {
+  background: #383838;
   color: #fff;
 }
 
@@ -38,15 +39,30 @@ h1 {
 
 .btn {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   background-color: #fff;
-  color: #000;
-  border-radius: 4px;
+  color: #383838;
+  font-size: 1rem;
+  text-transform: uppercase;
   text-decoration: none;
+  border-radius: 0.25rem;
   transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #000;
+  background-color: #f1f1f1;
+}
+
+.dark-mode {
+  background-color: #212121;
+  color: #fff;
+}
+
+.dark-mode #header {
+  background: linear-gradient(to bottom, #383838, #212121);
+}
+
+.dark-mode .btn {
+  background-color: #383838;
   color: #fff;
 }
